@@ -1,0 +1,8 @@
+FROM adoptopenjdk/openjdk10:jdk-10.0.2.13
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+VOLUME /data
+EXPOSE 9092
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+

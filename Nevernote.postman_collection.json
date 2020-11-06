@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "2b3a40ce-6666-40cf-bed5-5dd912f88d1a",
+		"name": "Nevernote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Notebook create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n    \"title\":\"log book\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notebooks/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notebooks",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notebook search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"notebooks\":[\"06ff3320-ed69-44aa-811d-c6329e1aecd6\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notebooks/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notebooks",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notebook delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"notebooks\":[\"21d72ec2-b614-4d7f-87e1-fc0683e160c6\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notebooks/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notebooks",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Note Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"notebookID\": \"457b6a1c-9183-479b-bc48-2762562319dc\",\n        \"title\": \"first note\",\n        \"body\": \"hello world\",\n        \"tags\": [\n            \"hello\"\n        ]\n    },\n    {\n        \"notebookID\": \"457b6a1c-9183-479b-bc48-2762562319dc\",\n        \"title\": \"third note\",\n        \"body\": \"hello world\",\n        \"tags\": [\n            \"hello\",\n            \"world\"\n        ]\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notes/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notes",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notebook Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notebooks/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notebooks",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notes Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"noteIDs\":[\"71072f92-9c60-4e16-ba44-3a54c59d5930\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notes/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notes",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notes Get",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"noteIDs\":[\"71072f92-9c60-4e16-ba44-3a54c59d5930\",\"c9fba61b-ee60-4bc1-8904-d71f6d87e799\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notes/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notes",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Note Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\n    \"noteID\":\"32da5194-ca63-4ff3-987a-b861824af425\",\n    \"notebookID\": \"457b6a1c-9183-479b-bc48-2762562319dc\",\n    \"title\": \"world note\",\n    \"body\": \"world\",\n    \"tags\": [\n        \"world\"\n    ]\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9092/nevernote/notes/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9092",
+					"path": [
+						"nevernote",
+						"notes",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

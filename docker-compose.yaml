@@ -1,0 +1,21 @@
+version: "3"
+services:
+  redis:
+    image: redis
+    volumes:
+      - nevernote-data:/data
+    ports:
+        - "6379:6379"        
+  nevernote:
+    build: 
+      context: .
+      dockerfile: dockerfile.local 
+    volumes:
+      - nevernote-data:/data
+    ports:
+        - "8080:8080" 
+    environment:
+      - spring.redis.host=redis      
+volumes:
+  nevernote-data:
+    driver: local   
