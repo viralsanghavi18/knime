@@ -64,10 +64,12 @@ public class NotebookServiceImpl implements NotebookService{
         log.info("get notebooks, requested ids: " + notebookGetRequest.getNotebooks());
 
         List<NotebookView> result = new ArrayList<>();
-        for (String notebookID : notebookGetRequest.getNotebooks()) {
-            Notebook notebook = notebookRepository.findById(notebookID);
-            if(notebook!=null)
-                result.add(createNotebookView(notebook,notebookGetRequest.getTag()));
+        if(notebookGetRequest.getNotebooks()!=null) {
+            for (String notebookID : notebookGetRequest.getNotebooks()) {
+                Notebook notebook = notebookRepository.findById(notebookID);
+                if (notebook != null)
+                    result.add(createNotebookView(notebook, notebookGetRequest.getTag()));
+            }
         }
 
         log.info("fetched notebooks successfully");

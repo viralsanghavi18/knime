@@ -1,5 +1,6 @@
 package com.nevernote.controllers;
 
+import com.nevernote.data.TestHelper;
 import com.nevernote.dto.NoteActionResponse;
 import com.nevernote.dto.NoteCreateRequest;
 import com.nevernote.dto.NoteMiscRequest;

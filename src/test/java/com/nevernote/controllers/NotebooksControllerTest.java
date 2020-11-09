@@ -1,6 +1,7 @@
 package com.nevernote.controllers;
 
 
+import com.nevernote.data.TestHelper;
 import com.nevernote.dto.NoteActionResponse;
 import com.nevernote.dto.NotebookCreateRequest;
 import com.nevernote.dto.NotebookGetRequest;
@@ -12,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -41,24 +41,11 @@ public class NotebooksControllerTest {
 
     @Test
     public void getNotebookSuccessTest() {
-        NotebookGetRequest notebookGetRequest = sampleNotebookGetRequest();
-        List<NotebookView> notebookViewList = sampleNotebookView();
+        NotebookGetRequest notebookGetRequest = testHelper.sampleNotebookGetRequest();
+        List<NotebookView> notebookViewList = testHelper.sampleNotebookView();
         when(notebookService.get(notebookGetRequest)).thenReturn(notebookViewList);
         assertEquals(notebookViewList, notebooksController.get(notebookGetRequest));
     }
 
 
-    private NotebookGetRequest sampleNotebookGetRequest(){
-        NotebookGetRequest notebookGetRequest = new NotebookGetRequest();
-        notebookGetRequest.setTag("test tag");
-        notebookGetRequest.setNotebooks(Arrays.asList("test notebook id"));
-        return notebookGetRequest;
-    }
-
-    private List<NotebookView> sampleNotebookView(){
-        NotebookView notebookView = new NotebookView();
-        notebookView.setId(" test notebook view");
-        notebookView.setTitle(" test notebook title");
-        return Arrays.asList(notebookView);
-    }
 }
